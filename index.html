@@ -4,15 +4,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <title>精益画布</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-  <link rel="stylesheet" href="js/jquery-ui/css/jquery-ui-1.10.1.custom.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="container">
   <div class="row">
-    <table class="table table-bordered">
+    <table class="table table-bordered lean-canvas-table">
       <tbody>
       <tr>
         <td rowspan="2" style="width:20%;">
@@ -20,11 +19,38 @@
             <div class="section-title-container">
               <div class="clearfix">
                 <span class="float-left section-title green-background">① 问题</span>
+                <div class="float-right help-container">
+                  <span type="button" data-toggle="modal" data-target="#question-container" class="helper-icon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                  <div class="modal fade" id="question-container" tabindex="-1" role="dialog" aria-labelledby="question">
+                    <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="question">重点</h4>
+                        </div>
+                        <div class="modal-body">
+                          <ul class="list-group">
+                            <li class="list-group-item">
+                              <h4>列出一到三个最重要的问题</h4>
+                              <div>针对每个目标客户群体，阐述他们最需要解决的一到三个问题。你也可以换个角度来思考，所谓问题就是客户需要完成的任务。</div>
+                            </li>
+                            <li class="list-group-item">
+                              <h4>列出现存备选解决方案</h4>
+                              <div>想想那些早期接纳者<strong class="red-strong">在你的产品没出现之前是如何解决这些问题的</strong>。除非你想解决的问题是从来没有人涉及过(这其实不太可能)，否则大部分问题都有现成的解决方案，而且这些解决方案很可能并不是出自一个直接竞争对手。</div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="section-title-introduction">最需要解决的三个问题</div>
             </div>
-            <div class="section-index">1</div>
-            <ul class="item-list unstyled"></ul>
+            <div class="section-body">
+              <div class="section-index">1</div>
+              <ul class="item-list unstyled"></ul>
+            </div>
           </div>
           <div class="section-container">
             <div class="section-title-container">
@@ -33,8 +59,10 @@
               </div>
               <div class="section-title-introduction">哪些现有产品可以部分解决需求</div>
             </div>
-            <div class="section-index">&nbsp;</div>
-            <ul class="item-list unstyled"></ul>
+            <div class="section-body">
+              <div class="section-index">&nbsp;</div>
+              <ul class="item-list unstyled"></ul>
+            </div>
           </div>
           <a class="section-comment" href="javascript:{}">发表评论</a>
         </td>
@@ -42,11 +70,37 @@
           <div class="section-title-container">
             <div class="clearfix">
               <span class="float-left section-title green-background">④ 解决方案</span>
+              <div class="float-right help-container">
+                <span type="button" data-toggle="modal" data-target="#solution-container" class="helper-icon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                <div class="modal fade" id="solution-container" tabindex="-1" role="dialog" aria-labelledby="solution">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="solution">重点</h4>
+                      </div>
+                      <div class="modal-body">
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <h4>最简单的解决办法</h4>
+                            <div>
+                              现在你所想的问题都没有经过验证和测试，所以经过几次客户访谈后你可能会重新为这些问题排主次甚至把问题给换掉，这都很正常。因此，不要忙着确定详细的解决方案，而是应该粗略地想想，针对每个问题，你能提供的最简单的解决方案是什么，然后把它们写下来。
+                              <p><strong class="red-strong">不要急着把解决方案和问题对应起来，尽量把这个问题留到最后。</strong></p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="section-title-introduction">产品最重要的三个功能</div>
           </div>
-          <div class="section-index">4</div>
-          <ul class="item-list unstyled"></ul>
+          <div class="section-body">
+            <div class="section-index">4</div>
+            <ul class="item-list unstyled"></ul>
+          </div>
           <a class="section-comment" href="javascript:{}">发表评论</a>
         </td>
         <td rowspan="2" colspan="2" style="width:20%;">
@@ -54,11 +108,57 @@
             <div class="section-title-container">
               <div class="clearfix">
                 <span class="float-left section-title purple-background">③ 独特卖点</span>
+                <div class="float-right help-container">
+                  <span type="button" data-toggle="modal" data-target="#unique-value-proposition-container" class="helper-icon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                  <div class="modal fade" id="unique-value-proposition-container" tabindex="-1" role="dialog" aria-labelledby="unique-value-proposition">
+                    <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="unique-value-proposition">重点</h4>
+                        </div>
+                        <div class="modal-body">
+                          <ul class="list-group">
+                            <li class="list-group-item">
+                              <h4>你和别人有什么不同，为什么客户愿意关注你?</h4>
+                              <div>"买卖"需要对话餐能完成，只说一句话别人就愿意买你的东西并不现实。更重要的是，你的第一个挑战根本就不是卖产品，而是<strong class="red-strong">得到潜在用户的关注</strong>。</div>
+                            </li>
+                            <li class="list-group-item">
+                              <h4>要与众不同，还要有独特之处</h4>
+                              <div>要想找出你的产品的不同之处，最好的办法就是直接从你<strong class="red-strong">要解决的头号问题</strong>出发推导独特卖点。如果这个问题确实值得解决，那你就已经成功大半了。</div>
+                            </li>
+                            <li class="list-group-item">
+                              <h4>针对早期接纳者来做设计</h4>
+                              <div>很多营销人员都喜欢针对"普通人"来做设计，希望能得到主流受众的青睐。为了做到这一点，他们会把整个设计做得平庸不堪。你的产品现在还不适合主流人群，<strong class="red-strong">现阶段的首要任务应该是找出那些可能成为早期接纳者的人群</strong>，然后对他们来做设计。你的设计传达的信息一定要<strong class="red-strong">有力、清晰且必须非常有针对性</strong>。</div>
+                            </li>
+                            <li class="list-group-item">
+                              <h4>专注于最终成效</h4>
+                              <div>
+                                你可能听说过这样的说法，"宣传的重点应该是产品能带来什么好处，而不是客户有什么功能。"。不过，就算宣传方案中说了一堆的产品好处，客户仍然会用自己的世界观来消化它。
+                                <p>戴恩·马克斯韦尔公式: 直白清晰的头条 = 客户想要的结果 + 限定的时间期限 + 做不到怎么办</p>
+                              </div>
+                            </li>
+                            <li class="list-group-item">
+                              <h4>回答: 什么、谁、为什么</h4>
+                              <div>好的独特卖点必须明确地回答前两个问题--产品是什么，客户是谁。"为什么"这个问题的答案有时候不方便放在同一个句子里，可以用副标题的方式来回答。</div>
+                            </li>
+                            <li class="list-group-item">
+                              <h4>研究其他优秀的独特卖点</h4>
+                              <div>要想写出好的独特卖点，最好的方法是研究你喜欢的品牌的独特卖点。访问他们的网站/APP，看看到底为什么他们的独特卖点很吸引人，以及哪些方面做得好。</div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="section-title-introduction">用一句简明扼要但引人注目的话阐述为什么你的产品与众不同,值得购买</div>
+              <div class="section-title-introduction">用一句简明扼要但引人注目的话阐述为什么你的产品与众不同，值得购买</div>
             </div>
-            <div class="section-index">3</div>
-            <ul class="item-list unstyled"></ul>
+            <div class="section-body">
+              <div class="section-index">3</div>
+              <ul class="item-list unstyled"></ul>
+            </div>
           </div>
           <div class="section-container">
             <div class="section-title-container">
@@ -67,8 +167,10 @@
               </div>
               <div class="section-title-introduction">宣传的一句口号</div>
             </div>
-            <div class="section-index">&nbsp;</div>
-            <ul class="item-list unstyled"></ul>
+            <div class="section-body">
+              <div class="section-index">&nbsp;</div>
+              <ul class="item-list unstyled"></ul>
+            </div>
           </div>
           <a class="section-comment" href="javascript:{}">发表评论</a>
         </td>
@@ -76,11 +178,45 @@
           <div class="section-title-container">
             <div class="clearfix">
               <span class="float-left section-title blue-background">⑨ 门槛优势</span>
+              <div class="float-right help-container">
+                <span type="button" data-toggle="modal" data-target="#unfair-advantage-container" class="helper-icon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                <div class="modal fade" id="unfair-advantage-container" tabindex="-1" role="dialog" aria-labelledby="unfair-advantage">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="unfair-advantage">重点</h4>
+                      </div>
+                      <div class="modal-body">
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <h4>什么不是优势?</h4>
+                            <div>
+                              <p>有很多创业者喜欢把激情、代码行数或者功能这类东西说成是竞争优势，但这些都不是优势。</p>
+                              <p>在商业模式中，人们还常常把"首创"称为优势。其实，<strong class="red-strong">首创很可能是劣势</strong>，因为开辟新市场（风险控制）的艰难重任落在了你的肩膀上，而紧紧跟随的后来者随时都有可能将你的全套招数收入囊中--除非你能不断超越自我和跟风者。而这就需要真正的"门槛优势"了。要知道，福特、丰田、谷歌、微软、苹果和Facebook……他们都不是首创者。</p>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>真正的门槛优势必须是无法轻易被复制或者购买的</h4>
+                            <div>符合定义的门槛优势：内部消息、“专家级用户”的支持和好评、超级团队、个人权威、大型网络效应、社区、现有顾客、SEO排名。</div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>可以暂时留空</h4>
+                            <div>在刚刚开始的时候，你可以把这个框留空。不过，这个框总是要填的。你必须仔细思考，到底如何才能让自己脱颖而出，并利用好你的优势。</div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="section-title-introduction">无法被对手轻易复制或者买去的竞争优势</div>
+            <div class="section-title-introduction">无法被对手轻易复制或买去的竞争优势</div>
           </div>
-          <div class="section-index">9</div>
-          <ul class="item-list unstyled"></ul>
+          <div class="section-body">
+            <div class="section-index">9</div>
+            <ul class="item-list unstyled"></ul>
+          </div>
           <a class="section-comment" href="javascript:{}">发表评论</a>
         </td>
         <td rowspan="2" style="width:20%;">
@@ -88,11 +224,40 @@
             <div class="section-title-container">
               <div class="clearfix">
                 <span class="float-left section-title blue-background">② 客户群体分类</span>
+                <div class="float-right help-container">
+                  <span type="button" data-toggle="modal" data-target="#customer-segments-container" class="helper-icon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                  <div class="modal fade" id="customer-segments-container" tabindex="-1" role="dialog" aria-labelledby="customer-segments">
+                    <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="customer-segments">重点</h4>
+                        </div>
+                        <div class="modal-body">
+                          <ul class="list-group">
+                            <li class="list-group-item">
+                              <h4>锁定潜在的早期接纳者</h4>
+                              <div>在思考前面几个问题的同时，你应该尽量细分目标客户群体，并进一步细化典型用户的各种特征。
+                                <strong class="red-strong">你的目标是定义一位典型的早期接纳者，而不是主流客户。</strong>
+                              </div>
+                            </li>
+                            <li class="list-group-item">
+                              <h4>找出其他的用户角色</h4>
+                              <div>找出其他可能会和目标客户进行互动的用户角色。</div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="section-title-introduction">目标客户</div>
             </div>
-            <div class="section-index">2</div>
-            <ul class="item-list unstyled"></ul>
+            <div class="section-body">
+              <div class="section-index">2</div>
+              <ul class="item-list unstyled"></ul>
+            </div>
           </div>
           <div class="section-container">
             <div class="section-title-container">
@@ -101,8 +266,10 @@
               </div>
               <div class="section-title-introduction">理想客户特征</div>
             </div>
-            <div class="section-index">&nbsp;</div>
-            <ul class="item-list unstyled"></ul>
+            <div class="section-body">
+              <div class="section-index">&nbsp;</div>
+              <ul class="item-list unstyled"></ul>
+            </div>
           </div>
           <a class="section-comment" href="javascript:{}">发表评论</a>
         </td>
@@ -112,22 +279,133 @@
           <div class="section-title-container">
             <div class="clearfix">
               <span class="float-left section-title green-background">⑧ 关键指标</span>
+              <div class="float-right help-container">
+                <span type="button" data-toggle="modal" data-target="#key-matrics-container" class="helper-icon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                <div class="modal fade" id="key-matrics-container" tabindex="-1" role="dialog" aria-labelledby="key-matrics">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="key-matrics">重点</h4>
+                      </div>
+                      <div class="modal-body">
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <div>不管是什么类型的公司，总能找到少数几个关键指标，籍此评估一下公司的经营状况。这些指标不仅能帮你衡量公司的发展，也可以帮你找出客户生命周期中的重点时段。下面使用的评估框架是戴夫·麦克卢尔的"海盗指标组"</div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>获取</h4>
+                            <div>
+                              获取指的是把普通访客转换成对产品感兴趣的潜在客户的过程。
+                              <p>拿产品网站来说，只有<strong class="red-strong">访客点进注册页面</strong>，我才觉得是获取成功。</p>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>激活</h4>
+                            <div>
+                              激活指的是感兴趣的潜在客户对产品的第一印象感到满意。
+                              <p>拿产品网站来说，一旦用户注册，你就必须确保能够兑现网页上对产品做出的承诺（即<strong class="red-strong">独特卖点</strong>）。</p>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>留客</h4>
+                            <div>
+                              留客评估的是产品的"回头率"或者说是客户的投入程度。
+                              <p>拿产品网站来说，留客就是以前的访客重新登录网站，并使用产品。(<strong class="red-strong">实现多次独特卖点</strong>）</p>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>收入</h4>
+                            <div>收入评估的是用户付钱给你的情况。</div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>口碑</h4>
+                            <div>
+                              口碑是一种比较高级的用户获取渠道。满意的用户会再推荐或者促成其他潜在用户来使用你的产品。
+                              <p>拿产品网站来说，树口碑可以是隐性的，如使用病毒式传播或者社交分享功能（例如使用分享按钮分享给朋友），也可以很直白，比如使用推荐人奖励计划或者推荐送积分等。</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="section-title-introduction">应该考核哪些东西</div>
           </div>
-          <div class="section-index">8</div>
-          <ul class="item-list unstyled"></ul>
+          <div class="section-body">
+            <div class="section-index">8</div>
+            <ul class="item-list unstyled"></ul>
+          </div>
           <a class="section-comment" href="javascript:{}">发表评论</a>
         </td>
         <td class="section-container">
           <div class="section-title-container">
             <div class="clearfix">
               <span class="float-left section-title blue-background">⑤ 渠道</span>
+              <div class="float-right help-container">
+                <span type="button" data-toggle="modal" data-target="#channels-container" class="helper-icon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                <div class="modal fade" id="channels-container" tabindex="-1" role="dialog" aria-labelledby="channels">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="channels">重点</h4>
+                      </div>
+                      <div class="modal-body">
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <h4>无法建立起有效的客户渠道是失败的主要原因之一</h4>
+                            <div>
+                              <strong class="red-strong">创业公司的第一任务是学习</strong>，而不是扩张，所以刚刚开始的时候任何能把产品推给潜在客户的渠道都可以利用。
+                              <p>只要按照"客户发现/访谈"的流程，你就肯定能在初期建立起一个能够招揽到足够多客户的渠道。不过，如果你的商业模式需要大量的客户才能成功，那么这样的渠道建设方法肯定跟不上扩张的脚步，而且后期你很可能会卡在这个问题上。</p>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>免费与付费</h4>
+                            <div><strong class="red-strong">没有什么渠道是真正免费的。</strong>即使感觉有些渠道是免费的，比如SEO等，但这些渠道是需要花费人力资本的。这些渠道的投资回报率不好计算，因为和那些需要付费的渠道不同，这些渠道会一直存在，一直起作用。</div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>内联式渠道与外联式渠道</h4>
+                            <div>
+                              内联式渠道使用"拉式策略"让客户自然而然地找到你;而外联式渠道主要使用"推式策略"让产品"接触"客户。
+                              <p>内联式渠道包括博客、SEO、电子书、白皮书、网络讲堂;外联式渠道包括SEM、媒体广告、展销会、电话。如果你的独特卖点还没有经过市场校验的话，就没必要在外联式渠道上花钱进行宣传。</p>
+                              <p>访谈虽然属于外联式渠道，但是你应该试试。访谈能让你用很小的成本学到很多东西。</p>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>亲力亲为与自动化</h4>
+                            <div>
+                              可以把直销看成是扩张渠道。不过，只有在客户生命周期总价值超过直销人员总薪酬的时候，这种渠道才有用。当然，你可以把它看成是学习渠道，直销是最有效的学习手段之一，因为你可以面对面与客户进行交流。
+                              <p><strong class="red-strong">最好的方法是: 先亲力亲为地进行推销，然后再自动化。</strong></p>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>亲力亲为与他人代为</h4>
+                            <div>
+                              创业公司经常浪费精力来做的事情还有一件，就是过早地寻求建立战略合作伙伴关系。他们的初衷是和一家大公司合作，借用对方的渠道和信誉尚未。问题是，如果没有切实可行的产品，你又怎么能得到大公司的销售代表的青睐呢?
+                              <p>外聘销售人员是同样的道理。销售人员执行销售计划的能力也许比你强，但他们却不能替你指定销售计划。</p>
+                              <p><strong class="red-strong">你必须先亲自上阵销售你的产品，然后才能让别人来帮你销售。</strong></p>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>做口碑之前先留住客户</h4>
+                            <div>很多创业公司从一开始就热衷于口碑营销或者发展推介人。虽然口碑营销是一种很有用的产品宣传手段，<strong class="red-strong">但你必须先做一个值得让人宣传的产品。</strong></div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="section-title-introduction">如何找到客户</div>
           </div>
-          <div class="section-index">5</div>
-          <ul class="item-list unstyled"></ul>
+          <div class="section-body">
+            <div class="section-index">5</div>
+            <ul class="item-list unstyled"></ul>
+          </div>
           <a class="section-comment" href="javascript:{}">发表评论</a>
         </td>
       </tr>
@@ -136,22 +414,95 @@
           <div class="section-title-container">
             <div class="clearfix">
               <span class="float-left section-title black-background">⑦ 成本分析</span>
+              <div class="float-right help-container">
+                <span type="button" data-toggle="modal" data-target="#cost-structure-container" class="helper-icon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                <div class="modal fade" id="cost-structure-container" tabindex="-1" role="dialog" aria-labelledby="cost-structure">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="cost-structure">重点</h4>
+                      </div>
+                      <div class="modal-body">
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <h4>必须考虑"收钱问题"</h4>
+                            <div>很多创业公司刚开始都不愿意考虑"收钱问题"，因为他们觉得自己的产品还没准备好。一种说法是，最简可行产品既然都是"最简"的了，你怎么好意思收别人钱呢？这个问题要这样看：首先，最简可行产品并不等于半吊子产品。虽说是最简可行产品，可<strong class="red-strong">它解决的是客户最看重的问题，而且这些问题都是值得解决的</strong>。这么说来，就意味着你必须为用户创造足够的价值，让他们愿意掏钱。</div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>不要降低早期接纳者的门槛</h4>
+                            <div>
+                              <p>人们暂时不愿意收钱的常见原因还有一个，那就是希望能在公司创办初期学到更多东西。持这种观点的人认为收费会给客户制造不必要的门槛，在创业早期应该尽量避免。</p>
+                              <p>事实上，大部分人在做新产品的时候都会注重降低客户入门难度。我们希望用户能毫无压力地同意试试我们的新产品，并且相信只要我们能持续为用户提供价值，那他们总会愿意付钱。</p>
+                              <p>这样做的问题在于，<strong class="red-strong">商业模式中风险最大的部分无法得到及时的验证（因为用户会很随意地选择你的产品）</strong>。此外，如果没有非常"忠实"的客户，也无法得到最佳的学习效果。</p>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>价格是产品的组成部分</h4>
+                            <div>
+                              <p>假设我在你面前摆两瓶水，然后告诉你一瓶价值50美分，另一瓶两美元。虽然说你无法在蒙眼测试中指出哪瓶水更好喝（两者本来就没什么差别），但是你可能会倾向于相信贵一点的那瓶水品质更好（至少你想知道是不是如此）。</p>
+                              <p>就这么简单，<strong class="red-strong">价格能够改变你对产品的看法。</strong></p>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>什么样的价格配什么样的客户</h4>
+                            <div>你的定价方案也决定了你的客户群体。从现在的瓶装水市场情况看来，两种价码的水都是有人买的。你的产品定价正好说明了你想服务于哪个目标客户群体。</div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>让人掏钱是第一重验证</h4>
+                            <div>让客户给你钱是一件非常困难的事情，也<strong class="red-strong">是一种初级形式的产品验证</strong>。</div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="section-title-introduction">争取客户所需花费、销售产品所需花费、网站架设费用和人力资源费用等</div>
           </div>
-          <div class="section-index">7</div>
-          <ul class="item-list unstyled"></ul>
+          <div class="section-body">
+            <div class="section-index">7</div>
+            <ul class="item-list unstyled"></ul>
+          </div>
           <a class="section-comment" href="javascript:{}">发表评论</a>
         </td>
         <td colspan="3" class="section-container">
           <div class="section-title-container">
             <div class="clearfix">
               <span class="float-left section-title orange-background">⑥ 收入分析</span>
+              <div class="float-right help-container">
+                <span type="button" data-toggle="modal" data-target="#revenue-streams-container" class="helper-icon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                <div class="modal fade" id="revenue-streams-container" tabindex="-1" role="dialog" aria-labelledby="revenue-streams">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="revenue-streams">重点</h4>
+                      </div>
+                      <div class="modal-body">
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <h4>关注当下</h4>
+                            <div>从产品制作到推向市场的过程中会产生各种支出，把这些都列出来。要想准确地预测将来会产生哪些开销是很困难的。所以，你应该把重点放在当下，比如：访谈30到50个客户需要多少成本？制作并发布最简可行产品需要多少成本？你现在的资金消耗率是多少？把它用固定成本和变动成本来表示。</div>
+                          </li>
+                          <li class="list-group-item">
+                            <h4>决定商业模式的优先级</h4>
+                            <div>把收入和成本分析结合起来，计算出一个<strong class="red-strong">平衡点</strong>，然后估计一下，你需要花多少时间、金钱和精力才能达到这个平衡点。随后，这个信息将帮助你来决定商业模式的优先级，即决定先尝试哪一种模式。</div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="section-title-introduction">盈利模式、客户终身价值、收入、毛利</div>
           </div>
-          <div class="section-index">6</div>
-          <ul class="item-list unstyled"></ul>
+          <div class="section-body">
+            <div class="section-index">6</div>
+            <ul class="item-list unstyled"></ul>
+          </div>
           <a class="section-comment" href="javascript:{}">发表评论</a>
         </td>
       </tr>
@@ -159,10 +510,10 @@
     </table>
   </div>
 </div>
-<script src="js/jquery-1.9.1.min.js"></script>
-<script src="js/jquery-ui/js/jquery-ui-1.10.1.custom.min.js"></script>
-<script src="js/jquery.tmpl.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="bower_components/jquery-tmpl/jquery.tmpl.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="js/index.js"></script>
 </body>
 </html>

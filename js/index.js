@@ -1,7 +1,7 @@
 $(function () {
   var leanCanvas = (function () {
-    var _checkShowDefault = function () {
-      $('.section-container').each(function () {
+    var _toggleSectionIndex = function () {
+      $('.section-body').each(function () {
         var existItemList = $(this).find('li').length === 0;
 
         $(this).find('.section-index').toggle(existItemList);
@@ -10,12 +10,12 @@ $(function () {
     };
 
     var _clearAllInput = function () {
-      $('.item-wrap').remove();
+      $('.item-container').remove();
     };
 
-    var _inputTemplate = ['<li class="item-wrap">',
-      '<div class="input-wrap">',
-      '<div><input type="text" class="input-item" name="input-item" value="${name}" /></div>',
+    var _inputTemplate = ['<li class="item-container">',
+      '<div class="item-input-container">',
+      '<div><input type="text" class="item-input" name="item-input" value="${name}" /></div>',
       '<div><input type="button" class="submit" value="保存" /><em>/</em><input type="button" class="cancel" value="取消" /></div>',
       '</div>',
       '</li>'
@@ -23,17 +23,22 @@ $(function () {
 
     var _appendInputItem = function (itemList) {
       _clearAllInput();
-      $(itemList).find('.item-wrap').remove();
+      $(itemList).find('.item-container').remove();
       $.tmpl(_inputTemplate, {name: ''}).appendTo(itemList);
       _initInputListener();
-      _checkShowDefault();
+      _toggleSectionIndex();
+    };
+
+    var _cancelItemWrap = function (itemWrap) {
+      $(itemWrap).remove();
+      _toggleSectionIndex();
     };
 
     var _initInputListener = function () {
-      $('.item-wrap').each(function () {
+      $('.item-container').each(function () {
         var itemWrap = this;
         var itemList = $(itemWrap).parent();
-        $(this).find('.input-item').focus().keypress(function (event) {
+        $(this).find('.item-input').focus().keypress(function (event) {
           var key = event.which;
           if (key === 13) {
             _appendShowItem(itemList);
@@ -50,14 +55,9 @@ $(function () {
       });
     };
 
-    var _cancelItemWrap = function (itemWrap) {
-      $(itemWrap).remove();
-      _checkShowDefault();
-    };
-
     var _showTemplate = [
-      '<li class="section-item">',
-      '<div class="row-fluid">',
+      '<li class="section-item container-fluid">',
+      '<div class="row-flow">',
       '<div class="span10 text-left section-item-content">${name}</div>',
       '<div class="span2 section-item-delete">',
       '<a class="delete" href="javascript:{}"></a>',
@@ -67,9 +67,9 @@ $(function () {
     ].join('');
 
     var _appendShowItem = function (itemList) {
-      var name = $(itemList).find('.input-item').first().val();
+      var name = $(itemList).find('.item-input').first().val();
       if (name && name !== '') {
-        var itemWrap = $(itemList).find('.item-wrap');
+        var itemWrap = $(itemList).find('.item-container');
         if (itemWrap.size() > 0) {
           itemWrap.replaceWith($($.tmpl(_showTemplate, {name: name})));
         } else {
@@ -79,17 +79,16 @@ $(function () {
       } else {
         $(itemList).remove();
       }
-      _checkShowDefault();
+      _toggleSectionIndex();
       _initShowItem();
     };
 
     var _initDelItem = function () {
       $('.delete').unbind('click').click(function (event) {
         event.stopPropagation();
-        var showItem = $(this).parents('.section-item');
-        showItem.remove();
+        $(this).parents('.section-item').remove();
         _clearAllInput();
-        _checkShowDefault();
+        _toggleSectionIndex();
         _initShowItem();
       });
     };
@@ -101,7 +100,7 @@ $(function () {
         var name = $(this).html();
         $(this).parents('.section-item').replaceWith($($.tmpl(_inputTemplate, {name: name})));
         _initInputListener();
-        _checkShowDefault();
+        _toggleSectionIndex();
       });
     };
 
@@ -115,9 +114,7 @@ $(function () {
       $('.section-comment').click(function (event) {
         event.stopPropagation();
         $('<div></div>').html([
-          '<div>',
-          '<textarea style="width:240px;height:90px;line-height:16px;"></textarea>',
-          '</div>',
+          '<div><textarea style="width:240px;height:90px;line-height:16px;"></textarea></div>',
           '<div><input type="button" value="提交" /></div>'
         ].join('')).dialog({
           autoOpen: false,
@@ -127,10 +124,9 @@ $(function () {
     };
 
     var init = function () {
-      $('.section-container').click(function (event) {
+      $('.section-body').click(function (event) {
         event.stopPropagation();
-        var itemList = $(this).find('.item-list').first();
-        _appendInputItem(itemList);
+        _appendInputItem($(this).find('.item-list'));
       });
       _initShowItem();
       _initFeed();

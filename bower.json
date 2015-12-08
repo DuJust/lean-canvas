@@ -1,0 +1,23 @@
+{
+  "name": "lean-canvas",
+  "version": "0.0.1",
+  "authors": [
+    "DuJust"
+  ],
+  "description": "Lean Canvas",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": null,
+    "bootstrap": null,
+    "jquery-tmpl": null,
+    "jquery-ui": null
+  }
+}
