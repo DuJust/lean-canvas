@@ -60,7 +60,7 @@ $(function () {
       '<div class="row-flow">',
       '<div class="span10 text-left section-item-content">${name}</div>',
       '<div class="span2 section-item-delete">',
-      '<a class="delete" href="javascript:{}"></a>',
+      '<span class="delete glyphicon glyphicon-trash"></span>',
       '</div>',
       '</div>',
       '</li>'
@@ -110,26 +110,12 @@ $(function () {
       _initDelItem();
     };
 
-    var _initFeed = function () {
-      $('.section-comment').click(function (event) {
-        event.stopPropagation();
-        $('<div></div>').html([
-          '<div><textarea style="width:240px;height:90px;line-height:16px;"></textarea></div>',
-          '<div><input type="button" value="提交" /></div>'
-        ].join('')).dialog({
-          autoOpen: false,
-          title: '发表评论'
-        }).dialog('open');
-      })
-    };
-
     var init = function () {
       $('.section-body').click(function (event) {
         event.stopPropagation();
         _appendInputItem($(this).find('.item-list'));
       });
       _initShowItem();
-      _initFeed();
     };
 
     return {

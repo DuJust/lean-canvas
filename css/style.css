@@ -182,20 +182,7 @@ input.cancel {
   margin-left: 5px;
 }
 
-.section-comment {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 12px;
-  display: none;
-}
-
-table.table td:hover .section-comment {
-  display: block;
-}
-
 .delete {
-  background: url(../img/delete.gif) no-repeat 50% 50%;
   width: 10px;
   height: 14px;
   display: none;
