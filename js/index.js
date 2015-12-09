@@ -1,5 +1,17 @@
 $(function () {
   var leanCanvas = (function () {
+    var _inputTemplate = ['<li class="item-container">',
+      '<div class="item-input-container">',
+      '<div><input type="text" class="item-input" name="item-input" value="${name}" /></div>',
+      '<div><input type="button" class="submit" value="保存" /><em>/</em><input type="button" class="cancel" value="取消" /></div>',
+      '</div>',
+      '</li>'
+    ].join('');
+
+    var _clearAllInput = function () {
+      $('.item-container').remove();
+    };
+
     var _toggleSectionIndex = function () {
       $('.section-body').each(function () {
         var existItemList = $(this).find('li').length === 0;
@@ -9,18 +21,6 @@ $(function () {
       });
     };
 
-    var _clearAllInput = function () {
-      $('.item-container').remove();
-    };
-
-    var _inputTemplate = ['<li class="item-container">',
-      '<div class="item-input-container">',
-      '<div><input type="text" class="item-input" name="item-input" value="${name}" /></div>',
-      '<div><input type="button" class="submit" value="保存" /><em>/</em><input type="button" class="cancel" value="取消" /></div>',
-      '</div>',
-      '</li>'
-    ].join('');
-
     var _appendInputItem = function (itemList) {
       _clearAllInput();
       $(itemList).find('.item-container').remove();
@@ -29,15 +29,15 @@ $(function () {
       _toggleSectionIndex();
     };
 
-    var _cancelItemWrap = function (itemWrap) {
-      $(itemWrap).remove();
+    var _cancelItemContainer = function (itemContainer) {
+      $(itemContainer).remove();
       _toggleSectionIndex();
     };
 
     var _initInputListener = function () {
       $('.item-container').each(function () {
-        var itemWrap = this;
-        var itemList = $(itemWrap).parent();
+        var itemContainer = this;
+        var itemList = $(itemContainer).parent();
         $(this).find('.item-input').focus().keypress(function (event) {
           var key = event.which;
           if (key === 13) {
@@ -50,7 +50,7 @@ $(function () {
         });
         $(this).find('.cancel').click(function (event) {
           event.stopPropagation();
-          _cancelItemWrap(itemWrap);
+          _cancelItemContainer(itemContainer);
         });
       });
     };
@@ -69,9 +69,9 @@ $(function () {
     var _appendShowItem = function (itemList) {
       var name = $(itemList).find('.item-input').first().val();
       if (name && name !== '') {
-        var itemWrap = $(itemList).find('.item-container');
-        if (itemWrap.size() > 0) {
-          itemWrap.replaceWith($($.tmpl(_showTemplate, {name: name})));
+        var itemContainer = $(itemList).find('.item-container');
+        if (itemContainer.size() > 0) {
+          itemContainer.replaceWith($($.tmpl(_showTemplate, {name: name})));
         } else {
           $.tmpl(_showTemplate, {name: name}).appendTo(itemList);
         }
@@ -83,7 +83,7 @@ $(function () {
       _initShowItem();
     };
 
-    var _initDelItem = function () {
+    var _initDeleteItem = function () {
       $('.delete').unbind('click').click(function (event) {
         event.stopPropagation();
         $(this).parents('.section-item').remove();
@@ -107,7 +107,7 @@ $(function () {
     var _initShowItem = function () {
       $('.item-list').sortable().disableSelection();
       _initEditItem();
-      _initDelItem();
+      _initDeleteItem();
     };
 
     var init = function () {
