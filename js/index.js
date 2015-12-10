@@ -21,14 +21,6 @@ $(function () {
       });
     };
 
-    var _appendInputItem = function (itemList) {
-      _clearAllInput();
-      $(itemList).find('.item-container').remove();
-      $.tmpl(_inputTemplate, {name: ''}).appendTo(itemList);
-      _initInputListener();
-      _toggleSectionIndex();
-    };
-
     var _cancelItemContainer = function (itemContainer) {
       $(itemContainer).remove();
       _toggleSectionIndex();
@@ -55,11 +47,19 @@ $(function () {
       });
     };
 
+    var _appendInputItem = function (itemList) {
+      _clearAllInput();
+      $(itemList).find('.item-container').remove();
+      $.tmpl(_inputTemplate, {name: ''}).appendTo(itemList);
+      _initInputListener();
+      _toggleSectionIndex();
+    };
+
     var _showTemplate = [
       '<li class="section-item container-fluid">',
       '<div class="row-flow">',
-      '<div class="span10 text-left section-item-content">${name}</div>',
-      '<div class="span2 section-item-delete">',
+      '<div class="text-left section-item-content">${name}</div>',
+      '<div class="section-item-delete">',
       '<span class="delete glyphicon glyphicon-trash"></span>',
       '</div>',
       '</div>',
