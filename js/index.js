@@ -1,6 +1,7 @@
 $(function () {
   var leanCanvas = (function () {
-    var _inputTemplate = ['<li class="item-container">',
+    var _inputTemplate = [
+      '<li class="item-container">',
       '<div class="item-input-container">',
       '<div><input type="text" class="item-input" name="item-input" value="${name}" /></div>',
       '<div><input type="button" class="submit" value="保存" /><em>/</em><input type="button" class="cancel" value="取消" /></div>',
@@ -70,10 +71,11 @@ $(function () {
       var name = $(itemList).find('.item-input').first().val();
       if (name && name !== '') {
         var itemContainer = $(itemList).find('.item-container');
+        var itemTemplate = $.tmpl(_showTemplate, {name: name});
         if (itemContainer.size() > 0) {
-          itemContainer.replaceWith($($.tmpl(_showTemplate, {name: name})));
+          itemContainer.replaceWith($(itemTemplate));
         } else {
-          $.tmpl(_showTemplate, {name: name}).appendTo(itemList);
+          itemTemplate.appendTo(itemList);
         }
         _appendInputItem(itemList);
       } else {
@@ -98,7 +100,8 @@ $(function () {
         event.stopPropagation();
         _clearAllInput();
         var name = $(this).html();
-        $(this).parents('.section-item').replaceWith($($.tmpl(_inputTemplate, {name: name})));
+        var sectionItem = $.tmpl(_inputTemplate, {name: name});
+        $(this).parents('.section-item').replaceWith($(sectionItem));
         _initInputListener();
         _toggleSectionIndex();
       });
@@ -110,16 +113,14 @@ $(function () {
       _initDeleteItem();
     };
 
-    var init = function () {
-      $('.section-body').click(function (event) {
-        event.stopPropagation();
-        _appendInputItem($(this).find('.item-list'));
-      });
-      _initShowItem();
-    };
-
     return {
-      init: init
+      init: function () {
+        $('.section-body').click(function (event) {
+          event.stopPropagation();
+          _appendInputItem($(this).find('.item-list'));
+        });
+        _initShowItem();
+      }
     };
   }).call(this);
 
