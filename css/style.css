@@ -1,0 +1,197 @@
+.green-background {
+  background: #00BEBE;
+  color: white;
+  padding: 0 4px;
+}
+
+.purple-background {
+  background: #860086;
+  color: white;
+  padding: 0 4px;
+}
+
+.blue-background {
+  background: #00BFFF;
+  color: white;
+  padding: 0 4px;
+}
+
+.black-background {
+  background: #1E1E1E;
+  color: white;
+  padding: 0 4px;
+}
+
+.orange-background {
+  background: #FF4D00;
+  color: white;
+  padding: 0 4px;
+}
+
+.gray-font {
+  color: #CCCCCC;
+}
+
+.red-strong {
+  color: #92130B;
+}
+
+.helper-icon {
+  font-size: 20px;
+}
+
+.lean-canvas-table {
+  border-collapse: separate;
+  border-radius: 4px;
+}
+
+body {
+  padding-top: 20px;
+}
+
+a {
+  color: #00B7FF;
+  position: relative;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.section-container {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  min-height: 214px;
+}
+
+table.table td {
+  position: relative;
+}
+
+table.table td:hover {
+  background-color: #ECF0FA;
+}
+
+.section-index {
+  font-family: proxima-nova, helvetica, Arial, sans-serif;
+
+  font-size: 400%;
+  font-weight: bold;
+  color: #51A351;
+  min-height: 150px;
+  line-height: 150px;
+  text-align: center;
+}
+
+.section-title-container {
+  width: 100%;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 4px;
+}
+
+.section-title-introduction {
+  font-size: 12px;
+  color: #CCCCCC;
+  padding-left: 5px;
+}
+
+.item-list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}
+
+.section-item {
+  padding: 5px;
+}
+
+.item-input-container {
+  padding: 5px;
+}
+
+.item-input-container em {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 12px;
+}
+
+input.item-input {
+  width: 90%;
+  padding: 0;
+}
+
+input.submit {
+  color: #CCCCCC;
+  border: none;
+  background: none;
+  padding: 0 2px;
+  font-size: 12px;
+}
+
+input.cancel {
+  color: #CCC;
+  border: none;
+  background: none;
+  padding: 0 2px;
+  font-size: 12px;
+}
+
+.section-item .section-item-content {
+  cursor: move;
+  min-height: 16px;
+  font-size: 12px;
+  width: 80%;
+  display: inline-block;
+}
+
+.section-item .section-item-delete {
+  min-height: 16px;
+  font-size: 12px;
+  width: 15%;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.delete {
+  width: 10px;
+  height: 14px;
+  display: none;
+}
+
+.section-item:hover .delete {
+  display: block;
+}
+
+.section-item:hover .section-item-content {
+  background-color: #FFFFFF;
+}
